@@ -1,0 +1,45 @@
+
+.inputWrapper {
+  position: relative;
+
+  &.error .input {
+    outline: 1px solid #FF5252;;
+  }
+
+  .input {
+    width: 100%;
+    min-height: 48px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2D2D2D;
+    background: #F4F4F4;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 24px 15px;
+
+    &::placeholder {
+      color: rgba(45, 45, 45, 0.25);
+    }
+
+    &:focus {
+      outline: 1px solid #A445ED;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 24.45px;
+    transform: translateY(-50%);
+    object-fit: contain;
+  }
+}
+
+.errorMessage {
+  font-size: 16px;
+  line-height: 19px;
+  color: #FF5252;
+  margin-top: 8px;
+}
