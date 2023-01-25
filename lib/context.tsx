@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Theme } from 'types/theme';
 
 export enum ActionType {
     TOGGLE_THEME,
 }
 
 const initialValue = {
-    theme: 'light',
+    theme: Theme.LIGHT,
     dispatch: (actionType: ActionType, payload: unknown) => {},
 };
 
@@ -17,7 +18,7 @@ export const AppContextWrapper: React.FC = ({ children }) => {
             case ActionType.TOGGLE_THEME:
                 setValue({
                     ...value,
-                    theme: value.theme === 'light' ? 'dark' : 'light',
+                    theme: value.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
                 });
                 return;
         }
@@ -31,7 +32,7 @@ export const AppContextWrapper: React.FC = ({ children }) => {
             return;
         }
 
-        if (theme === 'light') {
+        if (theme === Theme.LIGHT) {
             htmlElement.classList.add('light');
             htmlElement.classList.remove('dark');
         } else {
