@@ -1,0 +1,19 @@
+
+.darkModeButtonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &.on .icon path {
+    stroke: #A445ED;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+
+    path {
+      transition: stroke 0.3s;
+    }
+  }
+}
