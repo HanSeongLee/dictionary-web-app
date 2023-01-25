@@ -1,3 +1,15 @@
 @import '~include-media/dist/include-media';
 
 $breakpoints: (mobile: 568px, tablet: 767px, desktop: 992px);
+
+.light {
+  --theme-background: #FFFFFF;
+  --theme-color: #2D2D2D;
+  --theme-input-background: #F4F4F4;
+}
+
+.dark {
+  --theme-background: #050505;
+  --theme-color: #FFFFFF;
+  --theme-input-background: #1F1F1F;
+}
