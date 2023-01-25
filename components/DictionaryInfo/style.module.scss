@@ -1,0 +1,150 @@
+
+.dictionaryInfo {
+
+  .wordBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .word {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: #2D2D2D;
+    }
+
+    .phonetic {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #A445ED;
+      margin-top: 8px;
+    }
+
+    .playButton {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      img {
+        display: flex;
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+
+  .detailsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .meaningBox {
+    .lineText {
+      position: relative;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      color: #2D2D2D;
+      overflow: hidden;
+      margin: 32px 0;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background: #E9E9E9;
+        content: "";
+        margin-left: 16px;
+      }
+    }
+
+    .meaningList {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      list-style: none;
+
+      li {
+        display: flex;
+        font-size: 15px;
+        line-height: 24px;
+        color: #2D2D2D;
+
+        &::before {
+          content: "\2022";
+          color: #8F19E8;
+          margin-right: 20px;
+        }
+
+        .contents {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+          .exampleText {
+            font-size: 15px;
+            line-height: 24px;
+            color: #757575;
+          }
+        }
+      }
+    }
+
+    .synonymBox {
+      display: flex;
+      gap: 24px;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #A445ED;
+        list-style: none;
+      }
+    }
+  }
+
+  .headerText {
+    font-size: 16px;
+    line-height: 19px;
+    color: #757575;
+    margin-bottom: 17px;
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    background: #E9E9E9;
+    border: none;
+    margin: 32px 0 24px;
+  }
+
+  .sourceText {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #757575;
+    margin-bottom: 8px;
+  }
+
+  .sourceUrlList {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #2D2D2D;
+    list-style: none;
+
+    li a {
+      display: flex;
+      align-items: center;;
+      gap: 9px;
+    }
+  }
+}
