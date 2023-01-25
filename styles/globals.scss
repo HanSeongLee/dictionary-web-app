@@ -64,4 +64,8 @@ a {
 input {
   color: var(--theme-color) !important;
   background: var(--theme-input-background) !important;
+
+  &::placeholder {
+    color: var(--theme-input-placeholder-color) !important;
+  }
 }
