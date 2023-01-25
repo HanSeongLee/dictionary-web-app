@@ -1,0 +1,28 @@
+
+.noDefinitionsFound {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 134px;
+
+  .icon {
+    font-size: 64px;
+    line-height: 75px;
+    color: #2D2D2D;
+    margin-bottom: 44px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2D2D2D;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 24px;
+    color: #757575;
+  }
+}
