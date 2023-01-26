@@ -7,6 +7,8 @@ $breakpoints: (mobile: 568px, tablet: 767px, desktop: 992px);
   --theme-color: #2D2D2D;
   --theme-input-background: #F4F4F4;
   --theme-input-placeholder-color: rgba(45, 45, 45, 0.25);
+  --theme-box-background: #FFFFFF;
+  --theme-box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -14,4 +16,6 @@ $breakpoints: (mobile: 568px, tablet: 767px, desktop: 992px);
   --theme-color: #FFFFFF;
   --theme-input-background: #1F1F1F;
   --theme-input-placeholder-color: rgba(255, 255, 255, 0.25);
+  --theme-box-background: #1F1F1F;
+  --theme-box-shadow: 0px 5px 30px #A445ED;
 }
