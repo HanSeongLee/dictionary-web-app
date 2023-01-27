@@ -3,3 +3,9 @@ export enum Font {
     SERIF = 'Serif',
     MONO = 'Mono',
 }
+
+export const predefineFonts: { [key in Font]: string } = {
+    [Font.SANS_SERIF]: 'Inter',
+    [Font.SERIF]: 'Lora',
+    [Font.MONO]: 'Inconsolata',
+};

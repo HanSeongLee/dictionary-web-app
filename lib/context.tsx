@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Theme } from 'types/theme';
+import { Font, predefineFonts } from 'types/font';
 
 export enum ActionType {
     TOGGLE_THEME,
+    CHANGE_FONT,
 }
 
 const initialValue = {
     theme: Theme.LIGHT,
+    font: Font.MONO,
     dispatch: (actionType: ActionType, payload: unknown) => {},
 };
 
@@ -21,12 +24,20 @@ export const AppContextWrapper: React.FC = ({ children }) => {
                     theme: value.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
                 });
                 return;
+            case ActionType.CHANGE_FONT:
+                setValue({
+                    ...value,
+                    font: payload as Font,
+                });
+                return;
+            default:
+                return;
         }
     };
 
     useEffect(() => {
         const htmlElement = window.document.querySelector('html');
-        const { theme } = value;
+        const { theme, font } = value;
 
         if (!htmlElement) {
             return;
@@ -39,6 +50,8 @@ export const AppContextWrapper: React.FC = ({ children }) => {
             htmlElement.classList.add('dark');
             htmlElement.classList.remove('light');
         }
+
+        htmlElement.style.setProperty('--global-font-family', predefineFonts[font]);
     }, [value]);
 
     return (

@@ -55,7 +55,7 @@ a {
 }
 
 * {
-  font-family: Inter;
+  font-family: var(--global-font-family), Inter, Lora, Inconsolata, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
