@@ -1,0 +1,23 @@
+
+.header {
+  padding: 24px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .divider {
+      width: 1px;
+      min-height: 32px;
+      height: 100%;
+      background: #E9E9E9;
+    }
+  }
+}
