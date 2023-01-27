@@ -4,6 +4,7 @@ import { Font, predefineFonts } from 'types/font';
 
 export enum ActionType {
     TOGGLE_THEME,
+    CHANGE_THEME,
     CHANGE_FONT,
 }
 
@@ -24,6 +25,12 @@ export const AppContextWrapper: React.FC = ({ children }) => {
                     theme: value.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
                 });
                 return;
+            case ActionType.CHANGE_THEME:
+                setValue({
+                    ...value,
+                    theme: payload as Theme,
+                });
+                return;
             case ActionType.CHANGE_FONT:
                 setValue({
                     ...value,
@@ -34,6 +41,11 @@ export const AppContextWrapper: React.FC = ({ children }) => {
                 return;
         }
     };
+
+    useEffect(() => {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        dispatch(ActionType.CHANGE_THEME, isDark ? Theme.DARK : Theme.LIGHT);
+    }, []);
 
     useEffect(() => {
         const htmlElement = window.document.querySelector('html');
