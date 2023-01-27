@@ -10,7 +10,7 @@ export enum ActionType {
 
 const initialValue = {
     theme: Theme.LIGHT,
-    font: Font.MONO,
+    font: Font.SANS_SERIF,
     dispatch: (actionType: ActionType, payload: unknown) => {},
 };
 
