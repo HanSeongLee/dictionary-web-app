@@ -1,0 +1,15 @@
+@import "styles/utils";
+
+.main {
+  padding-bottom: 85px;
+
+  .dictionarySearchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include media(">tablet") {
+      gap: 43px;
+    }
+  }
+}
