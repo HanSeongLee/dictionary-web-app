@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .dictionaryInfo {
   .wordBox {
@@ -6,17 +7,17 @@
     align-items: center;
 
     .word {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 39px;
+      @include HeadingL;
     }
 
     .phonetic {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 24px;
+      @include HeadingM;
       color: #A445ED;
       margin-top: 8px;
+
+      @include media(">tablet") {
+        margin-top: 11px;
+      }
     }
 
     .playButton {
@@ -28,6 +29,11 @@
         display: flex;
         width: 48px;
         height: 48px;
+
+        @include media(">tablet") {
+          width: 75px;
+          height: 75px;
+        }
       }
     }
   }
@@ -43,10 +49,17 @@
       position: relative;
       font-style: italic;
       font-weight: 700;
-      font-size: 18px;
-      line-height: 22px;
+      @include HeadingM;
       overflow: hidden;
       margin: 32px 0;
+
+      @include media(">tablet") {
+        margin: 43px 0;
+
+        &:first-child {
+          margin-top: 42px;
+        }
+      }
 
       &::after {
         position: absolute;
@@ -67,8 +80,6 @@
 
       li {
         display: flex;
-        font-size: 15px;
-        line-height: 24px;
 
         &::before {
           content: "\2022";
@@ -82,8 +93,6 @@
           gap: 13px;
 
           .exampleText {
-            font-size: 15px;
-            line-height: 24px;
             color: #757575;
           }
         }
@@ -99,8 +108,7 @@
         flex-wrap: wrap;
         gap: 16px;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
+        @include HeadingS;
         color: #A445ED;
         list-style: none;
       }
@@ -108,8 +116,7 @@
   }
 
   .headerText {
-    font-size: 16px;
-    line-height: 19px;
+    @include HeadingS;
     color: #757575;
     margin-bottom: 17px;
   }
@@ -120,26 +127,36 @@
     background: #E9E9E9;
     border: none;
     margin: 32px 0 24px;
+
+    @include media(">tablet") {
+      margin: 40px 0 19px;
+    }
   }
 
-  .sourceText {
-    font-size: 14px;
-    line-height: 17px;
-    text-decoration-line: underline;
-    color: #757575;
-    margin-bottom: 8px;
-  }
+  .sourceContainer {
+    display: flex;
+    flex-direction: column;
 
-  .sourceUrlList {
-    font-size: 14px;
-    line-height: 17px;
-    text-decoration-line: underline;
-    list-style: none;
+    @include media(">tablet") {
+      flex-direction: row;
+      gap: 20px;
+    }
 
-    li a {
-      display: flex;
-      align-items: center;
-      gap: 9px;
+    .sourceText {
+      @include BodyS;
+      color: #757575;
+      margin-bottom: 8px;
+    }
+
+    .sourceUrlList {
+      @include BodyS;
+      list-style: none;
+
+      li a {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
     }
   }
 }

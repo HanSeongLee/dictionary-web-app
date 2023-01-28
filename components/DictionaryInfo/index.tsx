@@ -104,24 +104,26 @@ const DictionaryInfo: React.FC<IProps> = ({
 
             <hr />
 
-            <div className={styles.sourceText}>
-                Source
-            </div>
+            <div className={styles.sourceContainer}>
+                <div className={styles.sourceText}>
+                    Source
+                </div>
 
-            <ul className={styles.sourceUrlList}>
-                {sourceUrls.map((sourceUrl, index) => (
-                    <li key={index}>
-                        <a href={sourceUrl}
-                           target={'_blank'}
-                        >
-                            <span>{sourceUrl}</span>
-                            <img src={'/icons/icon-new-window.svg'}
-                                 alt={''}
-                            />
-                        </a>
-                    </li>
-                ))}
-            </ul>
+                <ul className={styles.sourceUrlList}>
+                    {sourceUrls.map((sourceUrl, index) => (
+                        <li key={index}>
+                            <a href={sourceUrl}
+                               target={'_blank'}
+                            >
+                                <span>{sourceUrl}</span>
+                                <img src={'/icons/icon-new-window.svg'}
+                                     alt={''}
+                                />
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
