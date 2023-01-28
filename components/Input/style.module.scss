@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .inputWrapper {
   position: relative;
@@ -10,14 +11,19 @@
     width: 100%;
     min-height: 48px;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
+    @include HeadingS;
     color: #2D2D2D;
     background: #F4F4F4;
     border-radius: 16px;
     border: none;
     outline: none;
     padding: 14px 24px 15px;
+
+    @include media(">tablet") {
+      min-height: 64px;
+      line-height: 21px;
+      padding: 22px 24px 21px;
+    }
 
     &::placeholder {
       color: rgba(45, 45, 45, 0.25);
