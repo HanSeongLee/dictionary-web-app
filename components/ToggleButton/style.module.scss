@@ -7,6 +7,7 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  transition: background 0.3s;
 
   &::before {
     position: absolute;
@@ -19,6 +20,10 @@
     content: "";
     transform: translateX(3px);
     transition: background 0.3s, transform 0.3s;
+  }
+
+  &:hover {
+    background: #A445ED;
   }
 
   &.on {

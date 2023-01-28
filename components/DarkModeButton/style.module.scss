@@ -9,6 +9,12 @@
     gap: 20px;
   }
 
+  &:hover {
+    .icon path {
+      stroke: #A445ED;
+    }
+  }
+
   &.on .icon path {
     stroke: #A445ED;
   }
