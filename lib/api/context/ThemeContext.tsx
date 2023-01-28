@@ -1,42 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Theme } from 'types/theme';
-import { Font, predefineFonts } from 'types/font';
 
 export enum ActionType {
     TOGGLE_THEME,
-    CHANGE_THEME,
-    CHANGE_FONT,
 }
 
 const initialValue = {
     theme: Theme.LIGHT,
-    font: Font.SANS_SERIF,
     dispatch: (actionType: ActionType, payload: unknown) => {},
 };
 
-export const AppContextWrapper: React.FC = ({ children }) => {
+export const ThemeContextWrapper: React.FC = ({ children }) => {
     const [value, setValue] = useState(initialValue);
 
     const dispatch = (actionType: ActionType, payload: unknown) => {
         switch (actionType) {
-            case ActionType.TOGGLE_THEME:
+            case ActionType.TOGGLE_THEME: {
+                const newTheme = value.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
                 setValue({
                     ...value,
-                    theme: value.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
+                    theme: newTheme,
                 });
+                window.localStorage.setItem('theme', Theme.toString(newTheme));
                 return;
-            case ActionType.CHANGE_THEME:
-                setValue({
-                    ...value,
-                    theme: payload as Theme,
-                });
-                return;
-            case ActionType.CHANGE_FONT:
-                setValue({
-                    ...value,
-                    font: payload as Font,
-                });
-                return;
+            }
             default:
                 return;
         }
@@ -44,12 +31,18 @@ export const AppContextWrapper: React.FC = ({ children }) => {
 
     useEffect(() => {
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        dispatch(ActionType.CHANGE_THEME, isDark ? Theme.DARK : Theme.LIGHT);
+        const localTheme = window.localStorage.getItem('theme');
+        let theme = localTheme && localTheme !== 'undefined' ? Theme.fromString(localTheme) :
+            isDark ? Theme.DARK : Theme.LIGHT;
+
+        if (theme === Theme.DARK) {
+            dispatch(ActionType.TOGGLE_THEME, {});
+        }
     }, []);
 
     useEffect(() => {
         const htmlElement = window.document.querySelector('html');
-        const { theme, font } = value;
+        const { theme } = value;
 
         if (!htmlElement) {
             return;
@@ -62,19 +55,17 @@ export const AppContextWrapper: React.FC = ({ children }) => {
             htmlElement.classList.add('dark');
             htmlElement.classList.remove('light');
         }
-
-        htmlElement.style.setProperty('--global-font-family', predefineFonts[font]);
     }, [value]);
 
     return (
-        <AppContext.Provider value={{
+        <ThemeContext.Provider value={{
             ...value,
             dispatch,
         }}
         >
             {children}
-        </AppContext.Provider>
+        </ThemeContext.Provider>
     );
 };
 
-export const AppContext = React.createContext(initialValue);
+export const ThemeContext = React.createContext(initialValue);

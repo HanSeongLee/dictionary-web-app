@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import Select from 'components/Select';
 import { Font, predefineFonts } from 'types/font';
-import { ActionType, AppContext } from 'lib/context';
+import { ActionType, FontContext } from 'lib/api/context/FontContext';
 
 const options = Object.values(Font).map((name) => {
     return {
@@ -14,7 +14,7 @@ const options = Object.values(Font).map((name) => {
 });
 
 const FontSelectContainer: React.FC = () => {
-    const { font, dispatch } = useContext(AppContext);
+    const { font, dispatch } = useContext(FontContext);
 
     const onChange = useCallback((value: string) => {
         dispatch(ActionType.CHANGE_FONT, value);

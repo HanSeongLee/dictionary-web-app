@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import DarkModeButton from 'components/DarkModeButton';
-import { ActionType, AppContext } from 'lib/context';
 import { Theme } from 'types/theme';
+import { ActionType, ThemeContext } from 'lib/api/context/ThemeContext';
 
 const DarkModeButtonContainer: React.FC = () => {
-    const { theme, dispatch } = useContext(AppContext);
+    const { theme, dispatch } = useContext(ThemeContext);
 
     const onToggle = () => {
         dispatch(ActionType.TOGGLE_THEME, {});
