@@ -19,3 +19,54 @@ $breakpoints: (mobile: 568px, tablet: 767px, desktop: 992px);
   --theme-box-background: #1F1F1F;
   --theme-box-shadow: 0px 5px 30px #A445ED;
 }
+
+@mixin HeadingL {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+
+  @include media(">tablet") {
+    font-size: 64px;
+    line-height: 77px;
+  }
+}
+
+@mixin HeadingM {
+  font-size: 18px;
+  line-height: 24px;
+
+  @include media(">tablet") {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+@mixin HeadingS {
+  font-size: 16px;
+  line-height: 19px;
+
+  @include media(">tablet") {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@mixin BodyM {
+  font-size: 14px;
+  line-height: 24px;
+
+  @include media(">tablet") {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@mixin BodyS {
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: underline;
+
+  @include media(">tablet") {
+    line-height: 15px;
+  }
+}
