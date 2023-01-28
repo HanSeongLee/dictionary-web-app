@@ -1,6 +1,7 @@
 import React, { HTMLAttributes, useCallback, useRef } from 'react';
 import styles from './style.module.scss';
 import PlayIcon from 'public/icons/icon-play.svg';
+import Link from 'next/link';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     dictionary: Dictionary;
@@ -93,7 +94,13 @@ const DictionaryInfo: React.FC<IProps> = ({
                                 </div>
                                 <ul className={styles.synonymList}>
                                     {meaning.synonyms.map((synonym, index) => (
-                                        <li key={index}>{synonym}</li>
+                                        <li key={index}>
+                                            <Link href={`/?q=${synonym}`}>
+                                                <a>
+                                                    {synonym}
+                                                </a>
+                                            </Link>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
