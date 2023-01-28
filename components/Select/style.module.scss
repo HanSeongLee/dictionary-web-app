@@ -3,8 +3,7 @@
 .select {
   position: relative;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
+  @include BodyM;
 
   &.open {
     .overlay {
@@ -32,6 +31,10 @@
     align-items: center;
     gap: 16px;
     cursor: pointer;
+
+    @include media(">tablet") {
+      gap: 18px;
+    }
   }
 
   .optionsBox {
