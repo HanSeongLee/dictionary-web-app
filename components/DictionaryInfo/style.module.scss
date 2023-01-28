@@ -25,10 +25,26 @@
       border: none;
       cursor: pointer;
 
-      img {
+      &:hover {
+        .playIcon {
+          circle {
+            opacity: 1;
+          }
+
+          path {
+            fill: #FFFFFF;
+          }
+        }
+      }
+
+      .playIcon {
         display: flex;
         width: 48px;
         height: 48px;
+
+        circle, path {
+          transition: opacity 0.3s, fill 0.3s;
+        }
 
         @include media(">tablet") {
           width: 75px;

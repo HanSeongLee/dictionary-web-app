@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, useCallback, useRef } from 'react';
 import styles from './style.module.scss';
+import PlayIcon from 'public/icons/icon-play.svg';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     dictionary: Dictionary;
@@ -39,10 +40,9 @@ const DictionaryInfo: React.FC<IProps> = ({
                     <button className={styles.playButton}
                             onClick={playAudio}
                             type={'button'}
+                            arial-label={'play'}
                     >
-                        <img src={'/icons/icon-play.svg'}
-                             alt={'play'}
-                        />
+                        <PlayIcon className={styles.playIcon} />
                     </button>
                 )}
                 <audio ref={audioRef}>
