@@ -53,6 +53,7 @@
 
   .options {
     list-style: none;
+    transition: color 0.3s;
 
     .option {
       padding: 8px 24px;
@@ -64,6 +65,10 @@
 
       &:last-child {
         padding-bottom: 24px;
+      }
+
+      &:hover {
+        color: #A445ED;
       }
     }
   }
