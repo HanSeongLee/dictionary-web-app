@@ -61,6 +61,11 @@ const DictionarySearchContainer: React.FC<IProps> = ({ query, ...props }) => {
 
     useEffect(() => {
         if (!query) {
+            setSearch('');
+            setResult({
+                found: null,
+                data: null,
+            });
             return;
         }
 
